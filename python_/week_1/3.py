@@ -6,9 +6,9 @@ def solution(new_id):
 	#2
 	for i in new_id:
 		if i.isalnum():
-			continue
+			pass
 		elif i in ['-', '_', '.']:
-			continue
+			pass
 		else:
 			new_id = new_id.replace(i, "")
 
@@ -37,8 +37,8 @@ def solution(new_id):
 		new_id = new_id[:end]
 
 	#7
-	end = len(new_id) - 1
 	if len(new_id) <= 2:
+		end = len(new_id) - 1
 		while len(new_id) < 3:
 			new_id = new_id + new_id[end]
 
