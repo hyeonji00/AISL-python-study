@@ -1,7 +1,4 @@
-N, K = input().split()
-
-N = int(N)
-K = int(K)
+N, K = map(int, input().split())
 
 pixel = [[0 for j in range(N)] for i in range(N)]
 
