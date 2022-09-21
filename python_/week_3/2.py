@@ -8,9 +8,7 @@ def solve_boat_num(people):
 	while i <= j:
 		if sorted_people[i] + sorted_people[j] <= limit:
 			i += 1
-			j -= 1
-		else:
-			j -= 1
+		j -= 1
 		boat += 1
 	
 	return boat
@@ -23,6 +21,5 @@ people = []
 for i in range(N):
 	weight = int(input())
 	people.append(weight)
-
 
 print(solve_boat_num(people))

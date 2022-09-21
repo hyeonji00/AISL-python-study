@@ -5,10 +5,10 @@ import re
 import sys
 
 def minMaxSum(arr):
-	arr.sort()
+	sorted_arr = sorted(arr)
 
-	min_arr = arr[:4]
-	max_arr = arr[1:]
+	min_arr = sorted_arr[:4]
+	max_arr = sorted_arr[1:]
 
 	print(sum(min_arr), sum(max_arr))
 
