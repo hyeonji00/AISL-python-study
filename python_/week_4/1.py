@@ -1,12 +1,21 @@
 import pandas as pd
 
-def find_bus(bus_stop):
-	file_path = "/Users/hyeonji/Downloads/20220420기준_서울시_버스노선별정류소정보.xlsx"
-	file = pd.read_excel(file_path)
-	print(file)
+def find_busnum(bus_stop):
+	file = "/Users/hyeonji/Desktop/20220420기준_서울시_버스노선별정류소정보.xlsx"
+	data = pd.read_excel(file, engine="openpyxl", usecols=["노선명", "정류소명"])
+
+	for i in range(len(data)):
+		if bus_stop in data["정류소명"][i]:
+			print("[{}] 정류소에 [{}] 버스가 정차합니다.".format(data["정류소명"][i], data["노선명"][i]))
+
 
 def find_busstop(bus_num):
-	pass
+	file = "/Users/hyeonji/Desktop/20220420기준_서울시_버스노선별정류소정보.xlsx"
+	data = pd.read_excel(file, engine="openpyxl", usecols=["노선명", "정류소명"])
+
+	for i in range(len(data)):
+		if bus_num in data["노선명"][i]:
+			print("[{}] 버스가 [{}] 정류장에 정차합니다.".format(data["노선명"][i], data["정류소명"][i]))
 
 
 while 1:
@@ -15,9 +24,9 @@ while 1:
 
 	if N == 1:
 		bus_stop = input("정류장 이름을 입력하세요 (일부 명칭도 가능): ")
-		find_bus(bus_stop)
+		find_busnum(bus_stop)
 	elif N == 2:
-		bus_num = int(input("버스노선명을 입력하세요 : "))
+		bus_num = input("버스노선명을 입력하세요 : ")
 		find_busstop(bus_num)
 	elif N == 3:
 		print("프로그램을 종료합니다.")
