@@ -14,7 +14,7 @@ def find_busstop(bus_num):
 	data = pd.read_excel(file, engine="openpyxl", usecols=["노선명", "정류소명"])
 
 	for i in range(len(data)):
-		if bus_num in data["노선명"][i]:
+		if bus_num == data["노선명"][i]:
 			print("[{}] 버스가 [{}] 정류장에 정차합니다.".format(data["노선명"][i], data["정류소명"][i]))
 
 
